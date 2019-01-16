@@ -21,6 +21,8 @@
 **Git**
 - Intro
 - Git/GitHub
+- Subiendo imagen a DockerHub
+- Subiendo Dockerfile a GitHub
 
 **CI/CD**
 - Definición
