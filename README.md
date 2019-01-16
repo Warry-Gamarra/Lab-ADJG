@@ -2,15 +2,15 @@
 Laboratorio CI/DC, Ansible, Docker, Jenkins, Git
 
 Donde se tocarán temas básicos en base a:
-- Ansible: playbooks
-- Docker: instancia/contenedor
-- Jenkins: automatización
-- Git: Control de Versiones
-- Caso Practico: CI/DC Jenkins Sonar
+- Ansible: playbooks, modulos
+- Docker: instancia/contenedor, Dockerfile, docker-compose, redes, volumenes
+- Jenkins: automatización, administracion de plataforma, jobs, pipelines
+- Git: Control de Versiones, comandos basicos
+- Caso Practico: CI/DC Jenkins + pipeline + docker + maven
 
 ## Off-Topic
 - Vagrant / terraform
 - fabricfile/puppet
 - Aws / Azure
-- Linux Administration
-- 
+- Linux/Windows Administration
+- Virtualizacion: VirtualBox, KVM,  VMware, Hyper-V
