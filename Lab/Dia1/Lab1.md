@@ -140,8 +140,10 @@ Vamos a seguir mejorando nuestro job, para ello hacemos clic en **modificar**
 
 Por ultimo, vamos a usar unas variables para nuestro job de la sgt manera:
 
-```NOMBRE="paquita"
-echo "Hola $NOMBRE que estas haciendo?, ya es tarde? $(date +%F)" ```
+```
+NOMBRE="paquita"
+echo "Hola $NOMBRE que estas haciendo?, ya es tarde? $(date +%F)" 
+```
 
 Volverlo a Ejecutar.
 
