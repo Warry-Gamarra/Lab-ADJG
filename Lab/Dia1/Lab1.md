@@ -220,6 +220,7 @@ Esto se debe a que las variables de entorno son volatiles, nombre y apellido son
 Vamos a pasarlo como parametros de esta forma:
 
 ![build](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsbuild7.png "build")
+
 ![build](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsbuild8.png "build")
 
 
@@ -268,9 +269,33 @@ Hacemos clic en "build parameters"
 
 
 ![build](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsbuild12.png "build")
+
 ![build](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsbuild13.png "build")
 
+Tenemos mas tipos de parametros en Jenkins que nos pueden ser de utilidad, por lo cual vamos a ver lo siguiente:
+
+- En nuestro job "parameter" vamos a agregar la opción **Elección**
+
+Con los campos a completar: 
+- Nombre: ***OPCION*** 
+- Opciones: ***SI, NO, Ninguno***
 
 
+![build](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsbuild14.png "build")
+
+
+Nos ubicamos en la parte del script y añadimos: **$OPCION**
+
+![build](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsbuild15.png "build")
+
+Tendremos esta pantalla
+
+![build](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsbuild16.png "build")
+
+
+Ejecutamos nuestro job
+
+
+![build](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsbuild17.png "build")
 
 
