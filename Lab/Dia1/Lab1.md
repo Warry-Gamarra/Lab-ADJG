@@ -149,8 +149,7 @@ Volverlo a Ejecutar.
 Vamos a manejar VARIABLES DE ENTORNO, para ello, vamos a crear un script de nombre **jenkins.sh**
 
 ```#!/bin/bash
-echo "hola $nombre $apellido"
-```
+echo "hola $nombre $apellido"```
 
 
 Vamos a copiar jenkins.sh en el contenedor de jenkins:
