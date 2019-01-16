@@ -9,16 +9,16 @@
 
 **Imagenes**
 
-Buscar una imagen: ```$docker search image```
-Descargar una imagen: ```$docker pull image```
-Listar imagenes: ```$docker image```
-Borrar imagen: ```$docker rmi $NAME```
+- Buscar una imagen: ```$docker search image```
+- Descargar una imagen: ```$docker pull image```
+- Listar imagenes: ```$docker image```
+- Borrar imagen: ```$docker rmi $NAME```
 
 **Contenedores**
 
-Listar contendor: ```$docker ps -a```
-Ejecutar un contenedor: ```$docker run -it --name superapi nginx```
-Eliminar un contenedor: ```$docker rm -fv superapi```
+- Listar contendor: ```$docker ps -a```
+- Ejecutar un contenedor: ```$docker run -it --name superapi nginx```
+- Eliminar un contenedor: ```$docker rm -fv superapi```
 
 **Actividad**
 
