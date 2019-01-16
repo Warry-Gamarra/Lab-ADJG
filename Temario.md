@@ -46,11 +46,12 @@
 **Github**
 - Creando cuenta
 - Git: clone/commit/push
-
+- Subiendo imagen a DockerHub
+- Subiendo Dockerfile a GitHub
 
 ### Dia 2
 
-**Mañana / Tarde
+**Mañana / Tarde**
 
 - jenkins como contenedor (docker )
 - administración jenkins
