@@ -300,6 +300,9 @@ Ejecutamos nuestro job
 
 Vamos a añadir ahora un "valor boleano" TRUE/FALSE sobre nuestro job **parameter**
 
+![build](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsbuild18.png "build")
+
+
 ### OBS
 Si hacemos check, el valor por defecto es **TRUE**
 
@@ -311,7 +314,7 @@ En nuestro script, añadimos la variable:
 
 Ejecutamos nuestro job y debemos tener lo siguiente:
 
-![build](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsbuild19.png "build")
+![build](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsbuild20.png "build")
 
 Y en la ejecución:
 
