@@ -119,6 +119,8 @@ Para entrar al contenedor podemos usar:
 - personas: usuarios permitidos
 - historial: cada tarea o job tiene un historico, todas las tareas de guardan.
 
+![consola]( "Consola Jenkins")
+
 
 **Creacion de Job:**
 
