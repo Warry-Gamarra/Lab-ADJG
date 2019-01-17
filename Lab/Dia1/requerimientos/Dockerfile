@@ -1,9 +1,8 @@
-Dockerfile
 version: '3'
 services:
   jenkins:
     container_name: jenkins
-    image: jenkins/jenkins
+    image: jenkinsci/jenkins
     ports:
       - "8080:8080"
     volumes:
