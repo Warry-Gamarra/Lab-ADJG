@@ -30,7 +30,8 @@
 
 **Actividad**
 
-Buscar e instalar la imagen Nginx
+Buscar e instalar la imagen Apache con el TAG NAME = sapache y el puerto 80 debe visualizarse por el puerto 8282 en 
+el HOST.
 
 **Dockerfile**
 
