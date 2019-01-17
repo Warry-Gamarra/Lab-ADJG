@@ -68,7 +68,7 @@
 - jenkins aws
 
 **Casos Prácticos:**
-- Despliegue de entorno: mysql + apache 
+- Despliegue de entorno: mysql + apache ( contenedores )
 - CI/CD : Jenkins pipelines + docker + maven
 
 
