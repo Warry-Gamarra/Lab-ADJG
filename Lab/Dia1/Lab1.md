@@ -17,7 +17,11 @@
 **Contenedores**
 
 - Listar contendor: ```$docker ps -a```
-- Ejecutar un contenedor: ```$docker run -it --name superapi nginx```
+- Ejecutar un contenedor: 
+
+```$docker run -it --name superapi nginx bash```
+```$docker run -d --name superapi -p 80:80 nginx```
+
 - Eliminar un contenedor: ```$docker rm -fv superapi```
 
 **Actividad**
