@@ -104,7 +104,7 @@ Ahora vamos a iniciar nuestro contenedor :
 $docker run -it --name devubuntu ubuntu bash
 
 
-![contenedor](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerrun.png "Contenedor ubuntu")
+![contenedor](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/deockerrun.png "Contenedor ubuntu")
 
 
 Dentro del contenedor vamos a crear la carpeta datos en /opt y vamos a crear el usuario devubuntu con password devubuntu
