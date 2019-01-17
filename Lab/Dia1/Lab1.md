@@ -78,3 +78,14 @@ Si queremos crear una RED:
 Asignando la red a un contenedor
 ```$docker run -d --network lab-net --name dev2 -ti centos```
 
+# Vagrant
+
+# Ansible
+
+# Git/GitHub
+
+# Caso Practico:
+- Desplegar una infraestructura con 2 Nodos, 1 vm con ansible 
+- Ejecutar un playbook con: instalacion 1vm con mysql + usuario dba + carpeta /opt/deploy
+- Subir una imagen a DockerHub
+- Subir Dockerfile a Github
