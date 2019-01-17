@@ -113,7 +113,19 @@ Dentro del contenedor vamos a crear la carpeta datos en /opt y vamos a crear el 
 ![contenedor](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerdevu.png "Contenedor ubuntu")
 
 
-Procedemos a salir del contenedor, y vamos hacer un commit: $docker commit ID NAME_PROJECT
+Procedemos a salir del contenedor, y vamos hacer un commit, para ello tenemos que saber cual es el ID del **contenedor**, ejecutamos lo sgt:
+
+**$docker ps -a **
+
+
+![container](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockeridcontainer.png "Id container")
+
+
+Procedemos hacer commit en base al **ID del contenedor**
+
+
+```$docker commit ID NAME_PROJECT```
+
 
 ![id](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerid.png "id")
 
