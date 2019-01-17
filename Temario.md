@@ -27,6 +27,12 @@
 **CI/CD**
 - Definición
 
+**Preparacion de entornos**
+- Instalacion de docker toolbox ( windows )
+- Instalacion de docker, docker-compose ( Linux )
+- Ansible
+- git client
+
 
 ### TARDE
 
@@ -37,11 +43,10 @@
 - Creando una red
 - Usando Dockerfile
 
-
-**Taller práctico: Ansible**
+**Taller práctico: Ansible/Vagrant**
 - Instalacion de modulos
 - Despliegue de playbooks
-
+- Desplegando con Vagrant
 
 **Github**
 - Creando cuenta
@@ -62,7 +67,8 @@
 - jenkins git
 - jenkins aws
 
-**Caso Práctico:**
+**Casos Prácticos:**
+- Despliegue de entorno: mysql + apache 
 - CI/CD : Jenkins pipelines + docker + maven
 
 
