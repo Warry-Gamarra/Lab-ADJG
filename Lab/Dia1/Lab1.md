@@ -115,6 +115,7 @@ Dentro del contenedor vamos a crear la carpeta datos en /opt y vamos a crear el 
 
 Procedemos a salir del contenedor, y vamos hacer un commit: $docker commit ID NAME_PROJECT
 
+![id](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerid.png "id")
 
 
 ![commit](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockercommit.png "Commit")
@@ -132,7 +133,6 @@ Con el login realizado, vamos a identificar previamente el id para poder subir l
 
 ```$docker tag $ID USER_DOCKERHUB/NAME:IMAGE_NAME```
 
-![Login](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerid.png "id")
 
 Usamos ahora un push para subirlo:
 
