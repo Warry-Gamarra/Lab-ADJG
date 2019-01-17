@@ -127,9 +127,6 @@ Procedemos hacer commit en base al **ID del contenedor**
 ```$docker commit ID NAME_PROJECT```
 
 
-![id](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerid.png "id")
-
-
 ![commit](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockercommit.png "Commit")
 
 
