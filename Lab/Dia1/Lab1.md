@@ -94,7 +94,15 @@ Asignando la red a un contenedor
 ## Git/GitHub
 
 ## Caso Practico:
-- Desplegar una infraestructura con 2 Nodos, 1 vm con ansible 
-- Ejecutar un playbook con: instalacion 1vm con mysql + usuario dba + carpeta /opt/deploy
-- Subir una imagen a DockerHub
-- Subir Dockerfile y docker-compose a Github
+
+La empresa ACME SAC te ha contratado para realizar el despliegue de infraestructura en su nuevo ambiente de Desarrollo ( testing ), con los conocientos que tienes y debido a las limitantes en la empresa, ofreces implementar el siguiente stack tecnológico: **Virtualbox, docker, ansible y Git.**
+
+
+El gerente de sistema compra tu idea y te pide lo sgt:
+
+
+- 1 VM para administrar y desplegar las configuraciones hacia futuros servidores.
+- 1 VM con Mysql ( base de datos ) crear el usuario "dba" y la carpeta deploy en /opt
+- Crear 3 imagenes docker de nombre "acmebase", "acmedev" y "acmeprd" en base a Centos7 y subirla a DockerHub. ( acmeprd debe tener instalado Apache, acmedev debe tener instalado php )
+- Los archivos como por ejm. Dockerfile y docker-compose deben estar en GitHub para poder ser versionados en un futuro.
+- ***No puedes usar shell scripting para realizar estas tareas.***
