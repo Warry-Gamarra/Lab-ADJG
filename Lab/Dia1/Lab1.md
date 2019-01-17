@@ -140,7 +140,12 @@ Colocamos nuestros datos
 
 Con el login realizado, vamos a identificar previamente el id para poder subir la imagen ( taggeo ):
 
+![tag](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockertag.png "tag")
+
 ```$docker tag $ID USER_DOCKERHUB/NAME:IMAGE_NAME```
+
+
+![tag id](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockertagid.png "tagid")
 
 
 Usamos ahora un push para subirlo:
@@ -148,7 +153,7 @@ Usamos ahora un push para subirlo:
 ```$docker push USER_DOCKERHUB/NAME:IMAGE_NAME```
 
 
-![push](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerpush.png "push")
+![push](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerpush1.png "push")
 
 
 
