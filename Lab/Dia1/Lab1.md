@@ -115,7 +115,7 @@ Dentro del contenedor vamos a crear la carpeta datos en /opt y vamos a crear el 
 
 Procedemos a salir del contenedor, y vamos hacer un commit, para ello tenemos que saber cual es el ID del **contenedor**, ejecutamos lo sgt:
 
-**$docker ps -a **
+**$docker ps -a**
 
 
 ![container](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockeridcontainer.png "Id container")
@@ -155,6 +155,11 @@ Usamos ahora un push para subirlo:
 
 ![push](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerpush1.png "push")
 
+
+Nos logeamos en la web de dockerhub y validamos:
+
+
+![dockerhub](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerhub.png "dockerhub")
 
 
 ## Vagrant
