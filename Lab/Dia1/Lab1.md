@@ -104,20 +104,20 @@ Ahora vamos a iniciar nuestro contenedor :
 $docker run -it --name devubuntu ubuntu bash
 
 
-[!contenedor](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerrun.png "Contenedor ubuntu")
+![contenedor](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerrun.png "Contenedor ubuntu")
 
 
 Dentro del contenedor vamos a crear la carpeta datos en /opt y vamos a crear el usuario devubuntu con password devubuntu
 
 
-[!contenedor](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerdevu.png "Contenedor ubuntu")
+![contenedor](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerdevu.png "Contenedor ubuntu")
 
 
 Procedemos a salir del contenedor, y vamos hacer un commit: $docker commit ID NAME_PROJECT
 
 
 
-[!commit](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockercommit.png "Commit")
+![commit](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockercommit.png "Commit")
 
 
 Para subir nuestra imagen a DockerHub, hacemos login en la consola: $docker login
@@ -125,21 +125,21 @@ Para subir nuestra imagen a DockerHub, hacemos login en la consola: $docker logi
 Colocamos nuestros datos 
 
 
-[!Login](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerlogin.png "Login")
+![Login](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerlogin.png "Login")
 
 
 Con el login realizado, vamos a identificar previamente el id para poder subir la imagen ( taggeo ):
 
 $docker tag $ID USER_DOCKERHUB/NAME:IMAGE_NAME
 
-[!Login](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerid.png "id")
+![Login](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerid.png "id")
 
 Usamos ahora un push para subirlo:
 
 $docker push USER_DOCKERHUB/NAME:IMAGE_NAME
 
 
-[!push](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerpush.png "push")
+![push](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerpush.png "push")
 
 
 
