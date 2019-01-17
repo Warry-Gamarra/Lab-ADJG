@@ -105,4 +105,4 @@ El gerente de sistema compra tu idea y te pide lo sgt:
 - 1 VM con Mysql ( base de datos ) crear el usuario "dba" y la carpeta deploy en /opt
 - Crear 3 imagenes docker de nombre "acmebase", "acmedev" y "acmeprd" en base a Centos7 y subirla a DockerHub. ( acmeprd debe tener instalado Apache, acmedev debe tener instalado php )
 - Los archivos como por ejm. Dockerfile y docker-compose deben estar en GitHub para poder ser versionados en un futuro.
-- ***No puedes usar shell scripting para realizar estas tareas.***
+- ***No puedes usar shell scripting para realizar estas tareas ya que tienes que demostrar que dominas los temas que propusiste.***
