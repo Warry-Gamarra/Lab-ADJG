@@ -10,8 +10,8 @@ Como introducción,  vamos a trabajar con la imagen **jenkinsci**, para lo cual 
 ### OBS
 
 - Por medio de Putty o cualquier cliente SSH en Windows, vamos a conectarnos a la VM que instaló Docker ToolBox ( VirtualBox ), user: docker / passwd: tcuser
-- mkdir -p /opt/jenkins
-- chmod 777 -R  /opt/jenkins
+- mkdir -p /home/docker/jenkins
+- chmod 1000  /home/docker/jenkins
 
 Con nuestro docker-compose.yml, vamos a crear nuestro contenedor de jenkins:
 
@@ -294,7 +294,32 @@ networks:
 Lo que hará docker-compose, es crear un contenedor con imagen centos, esta imagen tendra de nombre **imgapp** y el nombre del contenedor será: **appremoto**.
 
 
+Dentro de la carpeta app, el contenido de nuestro Dockerfile será:
 
+
+```FROM centos
+
+RUN yum -y install openssh-server
+
+RUN useradd devuser && \
+    echo "devuser" | passwd devuser  --stdin && mkdir /home/devuser/.ssh && \
+    chmod 700 /home/devuser/.ssh
+
+COPY llave.pub /home/devuser/.ssh/authorized_keys
+
+RUN chown devuser:devuser  -R /home/devuser &&  chmod 600 /home/devuser/.ssh/authorized_keys
+
+RUN /usr/sbin/sshd-keygen > /dev/null 2>&1
+
+CMD /usr/sbin/sshd -D
+```
+
+Para finalizar, creamos las llaves SSH para la conexion:
+
+```**ssh-keygen -f llave**```
+
+
+Ahora, nos ubicamos en **/home/docker**, y ejecutamos **docker-compose build && docker-compose up -d**
 
 
 
