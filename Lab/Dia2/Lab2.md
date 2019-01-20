@@ -241,3 +241,13 @@ Ejecutamos nuestro job y debemos tener lo siguiente:
 Y en la ejecución:
 
 ![build](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsbuild21.png "build")
+
+Todo nuestro trabajo ha sido realizado en el contendor de Jenkins, lo que es valido para ciertos trabajos, pero en un caso "real" es conectarnos
+a un host/contenedor remoto y ejecutar jobs, para ello, vamos a crear previamente un contenedor, para trabajar con el y los jobs que despleguemos:
+
+
+
+
+
+
+
