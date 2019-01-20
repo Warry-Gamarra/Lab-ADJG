@@ -316,7 +316,7 @@ CMD /usr/sbin/sshd -D
 
 Para finalizar, creamos las llaves SSH para la conexion:
 
-```**ssh-keygen -f llave**```
+**```ssh-keygen -f llave```**
 
 
 Ahora, nos ubicamos en **/home/docker**, y ejecutamos **docker-compose build && docker-compose up -d**
