@@ -13,7 +13,24 @@ Como introducción,  vamos a trabajar con la imagen **jenkinsci**, para lo cual 
 - mkdir -p /opt/jenkins
 - chmod 777 -R  /opt/jenkins
 
-Con nuestro Dockerfile ya preparado, vamos a crear nuestro contenedor:
+Con nuestro docker-compose.yml, vamos a crear nuestro contenedor de jenkins:
+
+
+```version: '3'
+services:
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - $PWD/jenkins:/var/jenkins_home
+    networks:
+      - net
+networks:
+  net:
+```
+
 
 ```$docker-compose up -d ( crea contenedor )
 $docker-compose stop ( detener contenedor)
@@ -242,9 +259,39 @@ Y en la ejecución:
 
 ![build](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsbuild21.png "build")
 
-Todo nuestro trabajo ha sido realizado en el contendor de Jenkins, lo que es valido para ciertos trabajos, pero en un caso "real" es conectarnos
-a un host/contenedor remoto y ejecutar jobs, para ello, vamos a crear previamente un contenedor, para trabajar con el y los jobs que despleguemos:
+Todo nuestro trabajo ha sido realizado en el contendor de Jenkins, lo que es valido para ciertos trabajos, pero en un caso "real" necesitamos  conectarnos a un host/contenedor remoto y ejecutar jobs, para ello, vamos a crear previamente un contenedor, para trabajar con el y los jobs que despleguemos:
 
+Nos conectamos a nuestro servidor Docker y en la ruta: /home/docker, vamos a crear la carpeta **app** ( dentro la carpeta app crearemos nuestro archivo Dockerfile )
+
+Con nuestra carpeta creada, vamos a rehusar nuestro archivo: docker-compose.yml, el cual será el que cree nuestra imagen y enviandole las instrucciones necesarias a nuestro archivo Dockerfile.
+
+
+**docker-compose.yml**
+
+
+```version: '3'
+services:
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - $PWD/jenkins:/var/jenkins_home
+    networks:
+      - net
+  remote_host:
+    container_name: appremoto
+    image: imgapp
+    build:
+      context: centos7
+    networks:
+      - net
+networks:
+  net:
+```
+
+Lo que hará docker-compose, es crear un contenedor con imagen centos, esta imagen tendra de nombre **imgapp** y el nombre del contenedor será: **appremoto**.
 
 
 
