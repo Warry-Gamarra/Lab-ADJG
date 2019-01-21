@@ -1,0 +1,29 @@
+version: '3'
+services:
+  jenkins:
+    container_name: devjenkins
+    image: jenkinsci/jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - $PWD/jenkins:/var/jenkins_home
+    networks:
+      - net
+  remote_host:
+    container_name: devapp
+    image: imgapp
+    build:
+      context: app
+    networks:
+      - net
+  db_host:
+    container_name: dbaws
+    image: mysql:5.7
+    environment:
+      - "MYSQL_ROOT_PASSWORD=dbaws"
+    volumes:
+      - /home/docker/mysql:/var/lib/mysql
+    networks:
+      - net
+networks:
+  net:
