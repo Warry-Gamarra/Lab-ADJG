@@ -535,6 +535,101 @@ Y validamos en bucket ( AWS)
 
 ### Jenkins con ansible
 
+Para ejecutar playbooks desde Jenkins, primero debemos tener instalado ansible en Jenkins, quien sera nuestro master.
+
+en /home/docker, creamos la carpeta ansible, y dentro de el, creamos el Dockerfile
+
+
+```FROM jenkinsci/jenkins
+
+USER root
+
+RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py" && python get-pip.py
+
+RUN pip install -U ansible
+
+USER jenkins
+```
+
+Ahora, este será nuestro docker-compose.yml
+
+
+```version: '3'
+services:
+  jenkins:
+    container_name: devjenkins
+    image: jenkinsci/jenkins
+    build:
+      context: ansible     
+    ports:
+      - "8080:8080"
+    volumes:
+      - /home/docker/jenkins:/var/jenkins_home
+    networks:
+      - net
+  remote_host:
+    container_name: devapp
+    image: imgapp
+    build:
+      context: app
+    networks:
+      - net
+  db_host:
+    container_name: dbaws
+    image: mysql:5.7
+    environment:
+      - "MYSQL_ROOT_PASSWORD=1234"
+    volumes:
+      - /home/docker/mysql:/var/lib/mysql
+    networks:
+      - net
+networks:
+  net:
+```
+
+Compilamos y actualizamos los contenedores: ```$docker-compose build&&docker-compose up -d```
+
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible.png "ansible")
+
+
+Entramos al contenedor de jenkins y validamos: 
+
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible1.png "ansible")
+
+
+El punto fuerte de ansible es que no necesita colocar contraseñas ni instalar cliente, por ello,vamos a crear llaves SSH para la conexión:
+
+- cd /home/docker/jenkins
+- chown 1000:1000 ansible
+- docker exec -it devapp bash
+- cd /var/jenkins_home/ansible
+- **ssh-keygen**
+- El resultado debe ser similar a esto:
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible3.png "ansible")
+
+- Entramos al contendor **devapp** / docker exec -it devapp bash
+- Ejecutamos con el usuario devuser: ssh-keygen
+- Creamos el fichero authorized_keys en /home/devuser/.ssh
+- Copiamos  *pub  de jenkins en authorized_keys
+- Validamos la conexion ssh desde jenkins
+
+
+
+### OBS
+Si entramos al contenedor de jenkins, la carpeta **ansible** se encuentra en ***/var/jenkins_home/ansible***
+
+Vamos a copiar el archivo hosts en la ruta /home/docker/jenkins/ansible
+
+Antes de validar nuestra conexion via Ansible, debemos copiar la llave en el contenedor **devapp** para ello realizamos lo sgt:
+
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible2.png "ansible")
+
+
+
 
 ### Jenkins con Git
 
