@@ -277,7 +277,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - $PWD/jenkins:/var/jenkins_home
+      - /home/docker/jenkins:/var/jenkins_home
     networks:
       - net
   remote_host:
@@ -314,12 +314,12 @@ RUN /usr/sbin/sshd-keygen > /dev/null 2>&1
 CMD /usr/sbin/sshd -D
 ```
 
+### TIP
+Este ejemplo se basa en crear llaves SSH para el contenedor, en nuestro ejm. no lo usaremos.
+
 Para finalizar, creamos las llaves SSH para la conexion:
 
 **```ssh-keygen -f llave```**
 
 
 Ahora, nos ubicamos en **/home/docker**, y ejecutamos **docker-compose build && docker-compose up -d**
-
-
-
