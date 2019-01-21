@@ -489,8 +489,47 @@ Y para el restore:
 
 ```$mysql -u root -p sugar < /tmp/sugar.sql```
 
+### OBS
+- El bucket tiene nombre: dbawsu
+- El usuario ( IAM ): dbawsuser
+- Se debe tener acceso a credentials.csv ( aqui estan los datos de acceso )
 
 
+Bien, ahora vamos a copiar el script: backup.sh en /home/devuser 
+
+```$docker cp backup.sh  devapp:/home/devuser/ 
+
+Vamos a configurar el acceso via CLI a AWS de la siguiente forma ( contenedor: **devapp**  ):
+
+```export AWS_ACCESS__kEY_ID=
+
+export AWS_SECRET_ACCESS_KEY=
+```
+
+Para subirlo a nuestro bucket: 
+
+
+```aws s3 cp /tmp/bk_sugar.sql s3://dbawsu```
+
+Todo este procedimiento es de forma **manual**, vamos a verlo con Jenkins via un ***job***
+
+- Creamos el job de nombre: **job-aws**
+- Ejecutar/Execute shell script on remote host using ssh
+- sh /home/devuser/backup.sh
+
+![mysql](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmysql2.png "mysql")
+
+Ejecutamos nuestro job:
+
+![mysql](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmysql2.png "mysql")
+
+![mysql](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmysql3.png "mysql")
+
+![mysql](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmysql4.png "mysql")
+
+Y validamos en bucket ( AWS) 
+
+![mysql](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmysql5.png "mysql")
 
 
 
