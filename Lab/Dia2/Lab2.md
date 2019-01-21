@@ -599,6 +599,14 @@ Entramos al contenedor de jenkins y validamos:
 ![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible1.png "ansible")
 
 
+### OBS
+- Si entramos al contenedor de jenkins, la carpeta **ansible** se encuentra en ***/var/jenkins_home/ansible***
+- Vamos a copiar el archivo hosts en la ruta /home/docker/jenkins/ansible
+
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible2.png "ansible")
+
+
 El punto fuerte de ansible es que no necesita colocar contraseñas ni instalar cliente, por ello,vamos a crear llaves SSH para la conexión:
 
 - cd /home/docker/jenkins
@@ -615,19 +623,6 @@ El punto fuerte de ansible es que no necesita colocar contraseñas ni instalar c
 - Creamos el fichero authorized_keys en /home/devuser/.ssh
 - Copiamos  *pub  de jenkins en authorized_keys
 - Validamos la conexion ssh desde jenkins
-
-
-
-### OBS
-Si entramos al contenedor de jenkins, la carpeta **ansible** se encuentra en ***/var/jenkins_home/ansible***
-
-Vamos a copiar el archivo hosts en la ruta /home/docker/jenkins/ansible
-
-Antes de validar nuestra conexion via Ansible, debemos copiar la llave en el contenedor **devapp** para ello realizamos lo sgt:
-
-
-![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible2.png "ansible")
-
 
 
 
