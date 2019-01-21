@@ -259,6 +259,10 @@ Y en la ejecución:
 
 ![build](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsbuild21.png "build")
 
+
+### Jenkins hacia un Contendor 
+
+
 Todo nuestro trabajo ha sido realizado en el contendor de Jenkins, lo que es valido para ciertos trabajos, pero en un caso "real" necesitamos  conectarnos a un host/contenedor remoto y ejecutar jobs, para ello, vamos a crear previamente un contenedor, para trabajar con el y los jobs que despleguemos:
 
 Nos conectamos a nuestro servidor Docker y en la ruta: /home/docker, vamos a crear la carpeta **app** ( dentro la carpeta app crearemos nuestro archivo Dockerfile )
@@ -323,3 +327,166 @@ Para finalizar, creamos las llaves SSH para la conexion:
 
 
 Ahora, nos ubicamos en **/home/docker**, y ejecutamos **docker-compose build && docker-compose up -d**
+
+Acto siguiente desde la consola, vamos a activar el plugin de SSH y realizar la configuracion del contenedor que hemos creado.
+
+En el menú de Jenkins: 
+
+**Administrar Jenkins / Administrar plugins**
+
+
+Acontinuación vamos a crear las credenciales para nuestro contendor, para ello hacemos clic en **credentials**
+
+![credentials](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinscredentials.png "credentials")
+
+
+![credentials](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinscredentials1.png "credentials")
+
+
+Bien, ahora vamos a agregar las credenciales
+
+![credentials](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsuser.png "credentials")
+
+
+Al finalizar, debemos tener esta pantalla
+
+![credentials](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsuser1.png "credentials")
+
+
+Bien, Con el plugin activado y la credencial creada, vamos a configurar nuestro contenedor para que Jenkins pueda conectarse a el.
+
+**Administrar Jenkins / Configurar el Sistema**
+
+Vamos a buscar la opción: **SSH remote hosts**
+
+![ssh](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsssh.png "ssh")
+
+Ingresamos estos datos: 
+- HOSTNAME del contenedor, puedes ser la IP
+- Puerto: 22 
+
+![valida](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsvalida.png "valida")
+
+
+Hacemos clic en el boton **Check Connection** y el resultado debe ser "Successfull conection"
+
+Para guardar la configuracion, nos posicionamos en la ultima parte del menu, y damos clic en "guardar"
+
+Hasta ahora, ya tenemos todo listo para ejecutar/lanzar nuestro primer **JOB** en nuestro contenedor, para ello, vamos a crear una tarea / job:
+
+- Nombre Tarea: **valida-tarea**
+- Crear proyecto de libre estilo
+
+Nos ubicamos en la opcion: **Ejecutar** y escogemos **Ejecutar shell script on remote host using ssh** 
+
+
+![ssh](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsjobssh.png "ssh")
+
+
+Vamos a crear un pequeño mensaje y guardarlo en /tmp/log.txt en el contenedor centos.
+
+
+![ssh](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsjobssh1.png "ssh")
+
+
+Pues bien, vamos a ejecutar nuestro job, hacemos clic en **construir ahora**
+
+Y validamos nuestro job:
+
+
+![ssh](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsjobf.png "ssh")
+
+
+### OBS
+
+
+- Recordar que devuser debe tener permisos de RWX si desea escribir/modificar/ejcutar el contenido en un directorio donde no sea el owner.
+- Para validar nuestro JOB en el contenedor:  **docker exec -it devapp bash**
+
+
+### Jenkins con AWS
+
+Objetivo:
+
+- vamos a crear un job, el cual se ocnecte una BD, luego usaremos aws-cli, subimos un backup a amazons3
+- Creamos un contenedor de MySQL(5.7)
+
+Trabajamos nuevamente con nuestro archivo docker-compose.yml, y esta vez tendrá este contenido:
+
+```version: '3'
+services:
+  jenkins:
+    container_name: devjenkins
+    image: jenkinsci/jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - $PWD/jenkins:/var/jenkins_home
+    networks:
+      - net
+  remote_host:
+    container_name: devapp
+    image: imgapp
+    build:
+      context: app
+    networks:
+      - net
+  db_host:
+    container_name: dbaws
+    image: mysql:5.7
+    environment:
+      - "MYSQL_ROOT_PASSWORD=dbaws"
+    volumes:
+      - /home/docker/mysql:/var/lib/mysql
+    networks:
+      - net
+networks:
+  net:
+```
+
+Ejecutamos: **docker-compose up -d**  
+
+
+![mysql](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmysql.png "mysql")
+
+
+### OBS
+para realizar las validaciones ( ip + acceso a la bd ) nos conectamos al conetenedor: **docker exec -it dbaws bash**
+
+
+Bien, ahora dentro de app, vamos a modificar nuestro Dockerfile y quedará de la sgt forma:
+
+
+```FROM centos
+
+RUN yum -y install openssh-server net-tools epel-release
+
+RUN useradd devuser && echo "1234" | passwd devuser  --stdin && \
+
+RUN yum -y install mysql
+
+RUN yum -y install python-pip &&\
+    pip install awscli
+
+CMD /usr/sbin/sshd -D
+```
+
+Presto!!! ....  ejecutamos ahora **docker-compose build && docker-compose up -d**
+
+Entramos al contenedor **devapp** y validamos aws y mysql
+
+
+
+
+
+
+
+
+
+### Jenkins con ansible
+
+
+### Jenkins con Git
+
+
+### Jenkins con Maven
