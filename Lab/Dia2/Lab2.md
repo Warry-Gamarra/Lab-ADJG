@@ -19,8 +19,8 @@ Con nuestro docker-compose.yml, vamos a crear nuestro contenedor de jenkins:
 ```version: '3'
 services:
   jenkins:
-    container_name: jenkins
-    image: jenkins/jenkins
+    container_name: devjenkins
+    image: jenkinsci/jenkins
     ports:
       - "8080:8080"
     volumes:
@@ -272,8 +272,8 @@ Con nuestra carpeta creada, vamos a rehusar nuestro archivo: docker-compose.yml,
 ```version: '3'
 services:
   jenkins:
-    container_name: jenkins
-    image: jenkins/jenkins
+    container_name: devjenkins
+    image: jenkinsci/jenkins
     ports:
       - "8080:8080"
     volumes:
@@ -284,7 +284,7 @@ services:
     container_name: appremoto
     image: imgapp
     build:
-      context: centos7
+      context: app 
     networks:
       - net
 networks:
@@ -299,7 +299,7 @@ Dentro de la carpeta app, el contenido de nuestro Dockerfile será:
 
 ```FROM centos
 
-RUN yum -y install openssh-server
+RUN yum -y install openssh-server net-tools
 
 RUN useradd devuser && \
     echo "devuser" | passwd devuser  --stdin && mkdir /home/devuser/.ssh && \
