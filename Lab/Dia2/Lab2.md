@@ -461,7 +461,7 @@ Bien, ahora dentro de app, vamos a modificar nuestro Dockerfile y quedará de la
 
 RUN yum -y install openssh-server net-tools epel-release
 
-RUN useradd devuser && echo "1234" | passwd devuser  --stdin && \
+RUN useradd devuser && echo "1234" | passwd devuser  --stdin 
 
 RUN yum -y install mysql
 
