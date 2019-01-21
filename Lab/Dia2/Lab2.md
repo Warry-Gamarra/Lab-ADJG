@@ -604,14 +604,11 @@ Entramos al contenedor de jenkins y validamos:
 - Vamos a copiar el archivo hosts en la ruta /home/docker/jenkins/ansible
 
 
-![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible2.png "ansible")
-
-
 El punto fuerte de ansible es que no necesita colocar contraseñas ni instalar cliente, por ello,vamos a crear llaves SSH para la conexión:
 
 - cd /home/docker/jenkins
 - chown 1000:1000 ansible
-- docker exec -it devapp bash
+- docker exec -it devjenkins bash
 - cd /var/jenkins_home/ansible
 - **ssh-keygen**
 - El resultado debe ser similar a esto:
@@ -623,6 +620,9 @@ El punto fuerte de ansible es que no necesita colocar contraseñas ni instalar c
 - Creamos el fichero authorized_keys en /home/devuser/.ssh
 - Copiamos  *pub  de jenkins en authorized_keys
 - Validamos la conexion ssh desde jenkins
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible2.png "ansible")
+
 
 
 
