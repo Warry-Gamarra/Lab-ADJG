@@ -2,7 +2,7 @@ FROM centos
 
 RUN yum -y install openssh-server epel-release
 
-RUN useradd remote_user && echo "1234" | passwd remote_user  --stdin
+RUN useradd devuser && echo "devuser" | passwd devuser  --stdin
 
 RUN /usr/sbin/sshd-keygen > /dev/null 2>&1
 
