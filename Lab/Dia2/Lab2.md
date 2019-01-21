@@ -410,6 +410,7 @@ Objetivo:
 
 - vamos a crear un job, el cual se ocnecte una BD, luego usaremos aws-cli, subimos un backup a amazons3
 - Creamos un contenedor de MySQL(5.7)
+- Tener una cuenta en AWS y un budget disponible
 
 Trabajamos nuevamente con nuestro archivo docker-compose.yml, y esta vez tendrá este contenido:
 
@@ -475,8 +476,18 @@ Presto!!! ....  ejecutamos ahora **docker-compose build && docker-compose up -d*
 
 Entramos al contenedor **devapp** y validamos aws y mysql
 
+Posterior a ello vamos a copiar **sugar.sql** en el contenedor **dbaws** en la ruta /tmp
+
+```$docker cp sugar.sql dbaws:/tmp/```
+
+Entramos al contenedor dbaws y ejecutamos:
 
 
+![mysql](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmysql1.png "mysql")
+
+Y para el restore:
+
+```$mysql -u root -p sugar < /tmp/sugar.sql```
 
 
 
