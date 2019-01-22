@@ -716,17 +716,25 @@ services:
     hostname: gitlab.example.com
     ports:
       - "443:443"
-      - "80:80"
+      - "8888:80"
     volumes:
-      - "/srv/gitlab/config:/etc/gitlab"
-      - "/srv/gitlab/logs:/var/log/gitlab"
-      - "/srv/docker/gitlab/data:/var/opt/gitlab"
+      - "/home/docker/gitlab/config:/etc/gitlab"
+      - "/home/docker/gitlab/logs:/var/log/gitlab"
+      - "/home/docker/docker/gitlab/data:/var/opt/gitlab"
     image: gitlab/gitlab-ce
     networks:
       - net
 networks:
   net:
 ```
+
+###OBS
+- Hacemos ahora: docker-compose up -d, este proceso demora 15mis aprox.
+- El usuario para el logeo en gitlab es root
+
+
+
+
 
 
 ### Jenkins con Maven
