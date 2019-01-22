@@ -601,7 +601,7 @@ Entramos al contenedor de jenkins y validamos:
 
 ### OBS
 - Si entramos al contenedor de jenkins, la carpeta **ansible** se encuentra en ***/var/jenkins_home/ansible***
-- Vamos a copiar el archivo hosts en la ruta /home/docker/jenkins/ansible
+- Vamos a copiar el archivo **hosts** en la ruta /home/docker/jenkins/ansible
 
 
 El punto fuerte de ansible es que no necesita colocar contraseñas ni instalar cliente, por ello,vamos a crear llaves SSH para la conexión:
@@ -616,12 +616,25 @@ El punto fuerte de ansible es que no necesita colocar contraseñas ni instalar c
 ![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible3.png "ansible")
 
 - Entramos al contendor **devapp** / docker exec -it devapp bash
-- Ejecutamos con el usuario devuser: ssh-keygen
-- Creamos el fichero authorized_keys en /home/devuser/.ssh
-- Copiamos  *pub  de jenkins en authorized_keys
+- Creamos el usuario jenkins: useradd jenkins
+- Ejecutamos con el usuario jenkins: ssh-keygen
+- Creamos el fichero authorized_keys en /home/jenkins/.ssh
+- Permisos: chmod go-rwx  authorized_keys
+- Copiamos  *pub  de jenkins en authorized_keys en devapp para el usuario jenkins ojo!
 - Validamos la conexion ssh desde jenkins
 
 ![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible2.png "ansible")
+
+Bien con las validaciones SSH de jenkins hacia devapp, vamos a probar un pequeño ping via ansible:
+***ojo! ya copiamos hosts en /home/docker/jenkins/ansible***
+
+En el contenedor de devjenkis, ejecutamos lo sgt:
+
+
+```$ansible -m ping -i hosts app1```
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible3.PNG "ansible")
+
 
 
 
