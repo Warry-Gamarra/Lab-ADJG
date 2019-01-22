@@ -728,10 +728,11 @@ networks:
   net:
 ```
 
-###OBS
+### OBS
 - Hacemos ahora: docker-compose up -d, este proceso demora 15mis aprox.
 - El usuario para el logeo en gitlab es root
 
+![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsgitlab.png "gitlab")
 
 
 
