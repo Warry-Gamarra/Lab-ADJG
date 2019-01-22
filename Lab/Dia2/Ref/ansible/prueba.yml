@@ -1,0 +1,3 @@
+- hosts: app1
+  tasks:
+   - shell: echo $(date) > /tmp/horaa-ansible

@@ -635,6 +635,47 @@ En el contenedor de devjenkis, ejecutamos lo sgt:
 
 ![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible3.PNG "ansible")
 
+Vamos a ejecutar un playbook ( el nombre de nuestro playbook es prueba.yml, el cual esta en /home/docker/ansible )
+
+```- hosts: app1
+  tasks:
+   - shell: echo $(date) > /tmp/horaa-ansible
+```
+
+Para entramos en el contenedor devjenkins:
+
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible4.PNG "ansible")
+
+
+Con estas pruebas básicas, vamos ahora a configurar Jenkins con Ansible:
+
+- Administrar Jenkins/Administrar Plugins
+- Todos los Plugins/Ansible
+
+Ahora vamos a crear un job para ejecutar un **playbook**
+
+### OBS
+Se debe configurar el usuario jenkins en jenkins para que realice conexion SSH via llaves
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible5.PNG "ansible")
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible6.PNG "ansible")
+
+
+- Nombre: job-ansible
+- Ejecutar/Invoke Ansible Playbook
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible7.PNG "ansible")
+
+- La configuracion sera asi:
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible8.PNG "ansible")
+
+- Ejecutamos nuestro job
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible9.PNG "ansible")
+
 
 
 
