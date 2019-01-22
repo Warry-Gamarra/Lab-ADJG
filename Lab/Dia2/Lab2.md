@@ -677,10 +677,56 @@ Se debe configurar el usuario jenkins en jenkins para que realice conexion SSH v
 ![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsansible9.PNG "ansible")
 
 
-
-
-
 ### Jenkins con Git
+
+Vamos a crear un contenedor Git Server e integrarlo con Jenkins
+
+
+```version: '3'
+services:
+  jenkins:
+    container_name: devjenkins
+    image: jenkinsci/jenkins
+    build:
+      context: ansible     
+    ports:
+      - "8080:8080"
+    volumes:
+      - /home/docker/jenkins:/var/jenkins_home
+    networks:
+      - net
+  remote_host:
+    container_name: devapp
+    image: imgapp
+    build:
+      context: app
+    networks:
+      - net
+  db_host:
+    container_name: dbaws
+    image: mysql:5.7
+    environment:
+      - "MYSQL_ROOT_PASSWORD=1234"
+    volumes:
+      - /home/docker/mysql:/var/lib/mysql
+    networks:
+      - net
+   git:
+    container_name: git-server
+    hostname: gitlab.example.com
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - "/srv/gitlab/config:/etc/gitlab"
+      - "/srv/gitlab/logs:/var/log/gitlab"
+      - "/srv/docker/gitlab/data:/var/opt/gitlab"
+    image: gitlab/gitlab-ce
+    networks:
+      - net
+networks:
+  net:
+```
 
 
 ### Jenkins con Maven
