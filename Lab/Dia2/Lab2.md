@@ -840,4 +840,7 @@ Validamos en gitlab nuestro codigo subido:
 
 - Entrar al contenedor de jenkins y validar en la ruta la descarga del proyecto.
 
-- Ahora vamos a interactuar con maven, contruyendo codigo. 
+- Ahora vamos a interactuar con maven, **contruyendo codigo**. 
+
+
+
