@@ -840,7 +840,137 @@ Validamos en gitlab nuestro codigo subido:
 
 - Entrar al contenedor de jenkins y validar en la ruta la descarga del proyecto.
 
-- Ahora vamos a interactuar con maven, **contruyendo codigo**. 
+Ahora vamos a interactuar con maven, **contruyendo codigo**. 
+
+- Vamos a configurar Maven:  /administrar Jenkins/Global Tool Configuration
+
+![maven](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmaven2.png "maven")
+
+- Vamos a modificar el job: **job-ci** para que interactúe con Maven:
+
+![maven](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmaven3.png "maven")
+
+![maven](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmaven4.png "maven")
+
+### OBS
+
+```-B -DskipTests clean package```
+
+
+- Guardamos y volvemos a contruir ( ejecutar job ) 
+
+- La salida debe ser similar a esta:
+
+![maven](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmaven5.png "maven")
+
+### OBS
+
+Todo esto se ejecuta en: /var/jenkins_home/workspace
+
+- Vamos a realizar un test para comprobar nuestro jar creado, para ello solo basta agregar una nueva tarea:
+
+
+![maven](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmaven6.png "maven")
+
+- El resultado debe la ejecucion:
+
+![maven](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmaven7.png "maven")
+
+### OBS
+
+El error se debe a los parametros de JAVA predefinidos para java/Jenkins, para poder solventarlo, tenemos 2 caminos:
+- Iniciar el contenedor con el parametro indicado
+
+```$docker run --name devjenkins -p 8080:8080 -d --env JAVA_OPTIONS="-Djdk.net.URLClassPath.disableClassPathURLCheck=true" jenkinsci/jenkins
+
+
+- Hacerlo via docker-compose
+
+```version: '3'
+services:
+  jenkins:
+    container_name: devjenkins
+    image: jenkinsci/jenkins
+    build:
+      context: ansible     
+    ports:
+      - "8080:8080"
+    environment:
+      - JAVA_OPTIONS="-Djdk.net.URLClassPath.disableClassPathURLCheck=true"
+    volumes:
+      - /home/docker/jenkins:/var/jenkins_home
+    networks:
+      - net
+```
+
+- Vamos a **desplegar** ahora nuestro JAR localmente
+
+
+![maven](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmaven8.png "maven")
+
+
+- Guardamos y construimos el Job, la salida debe ser similar a esta:
+
+![maven](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmaven9.png "maven")
+
+
+### TIP
+
+- Si deseamos notificaciones por correo, para notificiaciones por correo
+- Debemos tener configurado de forma correcta un servidor SMTP.
+
+![maven](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmaven10.png "maven")
+
+
+### Jenkins / Pipelines / Jenkinsfiles
+
+- Un Jenkinfile es la herramienta que nos da Jenkins para crear pipelines ( flujos de trabajo ).
+- Usaremos jenkinfile declarativo.
+- Debemos instalar el plugin de pipeline en jenkins.
+- Creamos un pipeline, nombre: **1-pipe**
+
+![pipeline](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinspipe.png "pipeline")
+
+
+- Los stage son los pasos a seguir en el pipeline.
+- Los steps son los pasos para configurar.
+
+
+### OBS
+
+usar primer-pipeline
+
+- El resultado debe ser similar a este
+
+
+![pipeline](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinspipe1.png "pipeline")
+
+
+
+![pipeline](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinspipe2.png "pipeline")
+
+
+- De esta manera ejecutamos un pipeline sencillo, ahora veamos la ejecución de un pipeline que tenga varios pasos:
+
+![pipeline](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinspipe3.png "pipeline")
+
+- Construimos el job, y la salida será similara esta:
+
+![pipeline](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinspipe4.png "pipeline")
+
+
+### CD / CI : Docker + Jenkins + Maven
+
+
+
+
+
+
+
+
+
+
+
 
 
 

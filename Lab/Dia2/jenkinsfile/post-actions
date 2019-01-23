@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    stages {
+        stage('Test') {
+            steps {
+                sh 'echo "Fail!"; exit 1'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Siempre me voy a ejecutar'
+        }
+        success {
+            echo 'Ejecutar si build no falla'
+        }
+        failure {
+            echo 'Ejecutar si ejecutar si build falla'
+        }
+        unstable {
+            echo 'Ejecutar si el control es inestable'
+        }
+        changed {
+            echo 'El pipeline estaba fallando pero ahora esta bien o visceversa'
+        }
+    }
+}

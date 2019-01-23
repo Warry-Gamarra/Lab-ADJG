@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    
+    environment {
+        topsecret = credentials('TEST')
+    }
+    stages {
+        stage('Example stage 1') {
+            steps {
+                sh 'echo $topsecret'
+            }
+        }
+    }
+}

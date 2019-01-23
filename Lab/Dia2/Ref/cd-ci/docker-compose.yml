@@ -1,0 +1,45 @@
+version: '3'
+services:
+  jenkins:
+    container_name: cdjenkins
+    image: jenkinsci/docker
+    build:
+      context: pipeline    
+    ports:
+      - "8080:8080"
+    volumes:
+      - /home/docker/cdjenkins:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - net
+  remote_host:
+    container_name: cdhost
+    image: remote-host
+    build:
+      context: app
+    networks:
+      - net
+  db_host:
+    container_name: dbcd
+    image: mysql:5.7
+    environment:
+      - "MYSQL_ROOT_PASSWORD=dbcd123"
+    volumes:
+      - /home/docker/dbdata:/var/lib/mysql
+    networks:
+      - net
+  git:
+    container_name: cdgitsrv
+    hostname: gitlab.example.com
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - "/home/docker/gitlab/config:/etc/gitlab"
+      - "/home/docker/gitlab/logs:/var/log/gitlab"
+      - "/home/docker/gitlab/data:/var/opt/gitlab"
+    image: gitlab/gitlab-ce
+    networks:
+      - net
+networks:
+  net:
