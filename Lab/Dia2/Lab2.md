@@ -735,7 +735,109 @@ networks:
 ![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsgitlab.png "gitlab")
 
 
+Vamos a crear un grupo y un proyecto para alojar un pequeño codigo, asi como asignaremos persmisos para acceder al repositorio
+
+**Create a group**
+
+### OBS
+Un grupo es una coleccion de varios proyectos!
+
+
+![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsgitlab1.PNG "gitlab")
+
+
+- **New Project**
+
+![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsgitlab2.PNG "gitlab")
+
+
+- Creamos un nuevo usuario ( clic en la llave )
+
+![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsgitlab3.PNG "gitlab")
+
+
+- Lo agregamos al grupo 
+
+
+![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsgitlab4.PNG "gitlab")
+
+
+![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsgitlab5.PNG "gitlab")
+
+
+- Realizamos un clone del proyecto
+
+![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsgitlab6.PNG "gitlab")
+
+
+![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsgitlab7.PNG "gitlab")
+
+
+Para subir un codigo de prueba, vamos a clonar este proyecto (en /home/docker/:
+
+**git clone https://github.com/jenkins-docs/simple-java-maven-app.git**
+
+![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsgitlab8.PNG "gitlab")
+
+![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsgitlab9.PNG "gitlab")
+
+
+- Vamos a copiar el contenido de simple-java-maven-app a maven
+
+### OBS
+
+como paso previo:
+
+
+```git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+```
+
+![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsgitlab12.PNG "gitlab")
+
+
+- Para visualizar los archivos modificados, nuevos, ejecutamos **git status** dentro de la carpeta maven
+
+![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsgitlab10.PNG "gitlab")
+
+- Agregamos todo el contenido: **git add .**
+
+![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsgitlab11.PNG "gitlab")
+
+- Hacemos el commit: **git commit -m "Nuevos Cambios"**
+
+- Y finalizamos con un: **git push**
+
+![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsgitlab13.PNG "gitlab")
+
+
+### OBS
+- Realizar el mismo procedimiento para el usuario creado en gitlab
+
+Validamos en gitlab nuestro codigo subido:
+
+
+![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsgitlab14.PNG "gitlab")
 
 
 
 ### Jenkins con Maven
+
+- En Jenkins instalamos el plugin para maven ( **maven integration** )
+- Validar que el plugin de git se encuentre instalado.
+- Creamos un nuevo proyecto: **job-ci**
+- Crear el usuario "root" en Jenkins.
+
+
+![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmaven.PNG "gitlab")
+
+
+- Construir
+- Validamos la salida
+
+![maven](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmaven1.PNG "maven")
+
+
+- Entrar al contenedor de jenkins y validar en la ruta la descarga del proyecto.
+
+- Ahora vamos a interactuar con maven, contruyendo codigo. 
