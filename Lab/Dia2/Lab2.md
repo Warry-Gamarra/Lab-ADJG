@@ -826,7 +826,7 @@ Validamos en gitlab nuestro codigo subido:
 - En Jenkins instalamos el plugin para maven ( **maven integration** )
 - Validar que el plugin de git se encuentre instalado.
 - Creamos un nuevo proyecto: **job-ci**
-- Crear el usuario "root" en Jenkins.
+- Crear el usuario "root" en Jenkins. ( este es el usuario **root de gitlab** )
 
 
 ![gitlab](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinsmaven.PNG "gitlab")
