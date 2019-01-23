@@ -19,7 +19,7 @@ services:
     networks:
       - net
   db_host:
-    container_name: db
+    container_name: dbaws
     image: mysql:5.7
     environment:
       - "MYSQL_ROOT_PASSWORD=1234"
@@ -28,15 +28,15 @@ services:
     networks:
       - net
   git:
-    container_name: git-server
+    container_name: srvgit
     hostname: gitlab.example.com
     ports:
       - "443:443"
       - "80:80"
     volumes:
-      - "/srv/gitlab/config:/etc/gitlab"
-      - "/srv/gitlab/logs:/var/log/gitlab"
-      - "/srv/gitlab/data:/var/opt/gitlab"
+      - "/home/docker/gitlab/config:/etc/gitlab"
+      - "/home/docker/gitlab/logs:/var/log/gitlab"
+      - "/home/docker/gitlab/data:/var/opt/gitlab"
     image: gitlab/gitlab-ce
     networks:
       - net
