@@ -938,13 +938,12 @@ services:
 
 ### OBS
 
-usar primer-pipeline
+usar 1-pipe
 
 - El resultado debe ser similar a este
 
 
 ![pipeline](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinspipe1.png "pipeline")
-
 
 
 ![pipeline](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinspipe2.png "pipeline")
@@ -960,15 +959,6 @@ usar primer-pipeline
 
 
 ### CD / CI : Docker + Jenkins + Maven
-
-
-
-
-
-
-
-
-
 
 
 
