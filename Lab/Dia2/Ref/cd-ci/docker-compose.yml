@@ -3,6 +3,8 @@ services:
   jenkins:
     container_name: cdjenkins
     image: jenkinsci/jenkins
+    build:
+     context: cdjenkins
     ports:
       - "8080:8080"
     volumes:
