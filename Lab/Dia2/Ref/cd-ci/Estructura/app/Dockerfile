@@ -1,0 +1,17 @@
+FROM centos
+
+RUN yum -y install openssh-server epel-release
+
+RUN useradd devuser &&  echo "devuser" | passwd devuser  --stdin 
+
+RUN /usr/sbin/sshd-keygen > /dev/null 2>&1
+
+RUN yum -y install mysql
+
+RUN yum -y install epel-release && \
+    yum -y install python-pip && \
+    pip install --upgrade pip && \
+    pip install awscli
+
+CMD /usr/sbin/sshd -D
+
