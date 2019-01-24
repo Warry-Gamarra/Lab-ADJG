@@ -1,43 +1,52 @@
 version: '3'
 services:
   jenkins:
-    container_name: cdjenkins
+    container_name: srvjenkins
     image: jenkinsci/jenkins
     build:
-     context: cdjenkins
+      context: srvjenkins    
     ports:
-      - "8080:8080"
+      - "8282:8080"
     volumes:
-      - /home/docker/cdjenkins:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/docker/srvjenkins:/var/jenkins_home
     networks:
       - net
   remote_host:
-    container_name: cdhost
-    image: remote-host
+    container_name: srvapp
+    image: imgsrvapp
     build:
-      context: app
+      context: srvapp
     networks:
       - net
   db_host:
-    container_name: dbcd
+    container_name: srvdb
     image: mysql:5.7
     environment:
-      - "MYSQL_ROOT_PASSWORD=dbcd123"
+      - "MYSQL_ROOT_PASSWORD=1234"
+      - "MYSQL_DATABASE=test"
     volumes:
-      - /home/docker/dbdata:/var/lib/mysql
+      - "/home/docker/srvdb:/var/lib/mysql"
+    networks:
+      - net
+  web:
+    container_name: srvweb
+    image: imgweb
+    build:
+      context: srvweb
+    ports:
+      - "80:80"
     networks:
       - net
   git:
-    container_name: cdgitsrv
+    container_name: srvgitlab
     hostname: gitlab.example.com
     ports:
       - "443:443"
-      - "80:80"
+      - "8080:80"
     volumes:
-      - "/home/docker/gitlab/config:/etc/gitlab"
-      - "/home/docker/gitlab/logs:/var/log/gitlab"
-      - "/home/docker/gitlab/data:/var/opt/gitlab"
+      - "/home/docker/srvgitlab/config:/etc/gitlab"
+      - "/home/docker/srvgitlab/logs:/var/log/gitlab"
+      - "/home/docker/srvgitlab/data:/var/opt/gitlab"
     image: gitlab/gitlab-ce
     networks:
       - net
