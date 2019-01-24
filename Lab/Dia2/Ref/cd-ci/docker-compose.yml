@@ -2,9 +2,7 @@ version: '3'
 services:
   jenkins:
     container_name: cdjenkins
-    image: jenkinsci/docker
-    build:
-      context: pipeline    
+    image: jenkinsci/jenkins
     ports:
       - "8080:8080"
     volumes:
