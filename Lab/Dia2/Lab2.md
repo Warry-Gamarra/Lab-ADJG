@@ -959,8 +959,14 @@ usar 1-pipe
 
 
 ### CD / CI : Docker + Jenkins + Maven
-
-
-
-
-
+- Iniciar los contenedores: base de datos ( mysql ), web ( nginx ) , jenkins, GitLab, Server Linux 
+- Definir stages para el pipeline
+- Generar los scripts necesarios
+- Generar un jar via Maven
+- Crea un pipeline en Jenkins ( integrado con Gitlab ) 
+- Valida el Flujo de la CI
+- Crea 2 VMs ( vagrant )
+- Instala nginx
+- Busca la forma de desplegar tu artefacto ( jenkins ) en las VM
+- Valida el Flujo de la CD
+- FIN 
