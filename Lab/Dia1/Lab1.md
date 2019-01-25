@@ -162,10 +162,24 @@ Nos logeamos en la web de dockerhub y validamos:
 ![dockerhub](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerhub.png "dockerhub")
 
 
-## Vagrant
+## Vagrant & Ansible
+
+Vagrant nos permite "crear" infraestructura por medio de "codigo" lo que se conoce como IcA, Ansible nos permite realizar configuraciones centralizadas sin la necesidad de interactuar directamente con los servidores.
+
+Ambas herramientas combinadas nos permiten desplegar infraestrucutra en menor tiempo, asi como las configuraciones que necesitemos. 
 
 
-## Ansible
+![vagrant](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/vagrant.PNG "Vagrant") 
+
+En la ruta ***/home/kdetony/env/ será nuestro directorio donde vamos a trabajar con vagrant, para ello vamos previamente a ejecutar **vagrant init**, lo que hace el comando es crear el archivo **Vagrantfile** base.
+
+Vamos a trabajar con el archivo Vagrantfile que esta adjunto a la guia
+
+Para que vagrant "compile", realizaremos esto:
+
+
+
+
 
 
 ## Caso Practico:
