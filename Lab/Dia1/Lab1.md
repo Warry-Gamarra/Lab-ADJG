@@ -261,7 +261,7 @@ node2
 ![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/ansible1.PNG "ansible")
 
 
-- Otra ejecución seria: ***ansible all -m copy -a 'content="Ansible Configuration\n" dest=/etc/motd'
+- Otra ejecución seria: ***ansible all -m copy -a 'content="Ansible Configuration\n" dest=/etc/motd'***
 
 ![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/ansible2.PNG "ansible")
 
