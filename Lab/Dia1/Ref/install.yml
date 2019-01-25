@@ -1,0 +1,16 @@
+---
+- hosts: all
+  task:
+    - name: Instalando vim
+      yum: name=vim-enhanced state=latest
+
+- hosts: nodos
+  task:
+    - name: Instalando apache
+      yum: name=httpd state=latest
+    - name: Iniciando servicio
+      service:
+        name: {{ item }}
+	enabled: true
+      with_items:
+        - httpd

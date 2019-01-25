@@ -168,17 +168,118 @@ Vagrant nos permite "crear" infraestructura por medio de "codigo" lo que se cono
 
 Ambas herramientas combinadas nos permiten desplegar infraestrucutra en menor tiempo, asi como las configuraciones que necesitemos. 
 
-
-![vagrant](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/vagrant.PNG "Vagrant") 
-
-En la ruta ***/home/kdetony/env/ será nuestro directorio donde vamos a trabajar con vagrant, para ello vamos previamente a ejecutar **vagrant init**, lo que hace el comando es crear el archivo **Vagrantfile** base.
+En la ruta ***C:\vagrant*** será nuestro directorio donde vamos a trabajar con vagrant, para ello vamos previamente a ejecutar **vagrant init**, lo que hace el comando es crear el archivo **Vagrantfile** base.
 
 Vamos a trabajar con el archivo Vagrantfile que esta adjunto a la guia
 
 Para que vagrant "compile", realizaremos esto:
 
+![vagrant](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/vagrant.PNG "Vagrant")
+
+Como resultado, debemos llegar :
+
+![vagrant](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/vagrant1.PNG "Vagrant")
 
 
+Validamos en Virtualbox:
+
+
+![vagrant](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/vagrant2.PNG "Vagrant")
+
+Si queremos conectarnos a la VM creada:
+
+![vagrant](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/vagrant3.PNG "Vagrant")
+
+![vagrant](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/vagrant4.PNG "Vagrant")
+
+
+Si queremos setear desde el archivo Vagrantfile el password para el usuario root:
+
+
+``` config.ssh.username= 'root'
+    config.ssh.password= 'vagrant'
+    config.ssh.insert_key= 'true'
+```
+
+Ahora vamos a crear de un solo golpe 3 vms, 1 master y 2 nodos,   para ello vamos a usar Vagranfile2
+
+Una vez terminada la creación de la infraestructura, listemos los nodos:
+
+
+```$vagrant status```
+
+Para conectarnos via SSH a cualquiera de los servidores:
+
+
+
+![vagrant](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/vagrant5.PNG "Vagrant")
+
+
+
+
+Seguimos estos pasos previos:
+
+- vagrant plugin install vagrant-scp 
+- En master: mkdir -p /home/vagrant/ansible
+- vagrant scp ansible.cfg master:/home/vagrant/ansible
+- ssh-keygen -t rsa "en los nodos master, 1 y 2"
+- Copiar el id_rsa.pub de master en el fichero authorized_keys en nodo1 y 2.
+- Validar el ssh sin que pida password. ( el usuario debe ser vagrant )
+- Configurar "sudoers" para poder usar **sudo**
+- En todos los nodos ( como usuario root ):
+
+```vi /etc/sudoers.d/ansible
+   vagrant ALL=(ALL) NOPASSWD: ALL
+```
+
+### OBS
+Se puede usar vagrant scp para realizar esta tarea... 
+
+
+Vamos ahora a configurar un playbook sencillo para validar el PING a los nodos, el cual será de la sgt manera, pero primero creamos nuestro inventario de hosts:
+
+- touch inventario
+
+
+```[all]
+node1 
+node2
+master
+
+[nodos]
+node1
+node2
+```
+
+- Ahora ejecutamos: ***ansible all -m ping -i inventario***
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/ansible.PNG "ansible")
+
+
+- Un comando sencillo de ejecutar seria: ***ansible all -m command -a id***
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/ansible1.PNG "ansible")
+
+
+- Otra ejecución seria: ***ansible all -m copy -a 'content="Ansible Configuration\n" dest=/etc/motd'
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/ansible2.PNG "ansible")
+
+### OBS
+
+Ejecuta la sentencia para obtener los hostname de todos los servidores
+
+
+Bien, como pudieron apreciar, podemos ejecutar cualquier comando de forma centralizada, ahora vamos a instalar vim en master y en los nodos la carpeta backup
+Por ello vamos a ver la estructura de un **playbook**
+
+- En /home/vagrant/ansible, vamos a copiar el fichero install.yml
+- Lo ejecutamos: ***ansible-playbook install.yml***
+
+![ansible](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/ansible3.PNG "ansible")
+
+
+De esta forma podemos realizar las configuraciones que deseemos de forma sencilla.
 
 
 
