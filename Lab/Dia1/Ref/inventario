@@ -1,0 +1,8 @@
+[all]
+master 
+node1
+node2
+
+[nodos]
+node2
+node1
