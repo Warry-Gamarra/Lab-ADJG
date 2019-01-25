@@ -196,9 +196,10 @@ Si queremos conectarnos a la VM creada:
 Si queremos setear desde el archivo Vagrantfile el password para el usuario root:
 
 
-``` config.ssh.username= 'root'
-    config.ssh.password= 'vagrant'
-    config.ssh.insert_key= 'true'
+``` 
+config.ssh.username= 'root'
+config.ssh.password= 'vagrant'
+config.ssh.insert_key= 'true'
 ```
 
 Ahora vamos a crear de un solo golpe 3 vms, 1 master y 2 nodos,   para ello vamos a usar Vagranfile2
