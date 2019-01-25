@@ -174,7 +174,7 @@ Vamos a trabajar con el archivo Vagrantfile que esta adjunto a la guia
 
 Para que vagrant "compile", realizaremos esto:
 
-![vagrant](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/vagrant.PNG "Vagrant")
+![vagrant](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/vagrant.png "Vagrant")
 
 Como resultado, debemos llegar :
 
@@ -241,7 +241,8 @@ Vamos ahora a configurar un playbook sencillo para validar el PING a los nodos, 
 - touch inventario
 
 
-```[all]
+```
+[all]
 node1 
 node2
 master
