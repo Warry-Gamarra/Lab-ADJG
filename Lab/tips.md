@@ -6,13 +6,13 @@ En windows 10 PRO/ENTERPRISE se recomienda instalar:
 - Virtualbox 6 + Extension Pack
 - docker toolbox ( sin virtualbox ) 
 - docker-compose ( https://docs.docker.com/compose/install/ )
-- Vagrant for Windows
+- Vagrant for Windows ( https://www.vagrantup.com/downloads.html )
 - Bash Linux ( opcional )
 - putty o similar ( si ya se cuenta con cmder o bash no es necesario ) 
 
 En Linux se debe instalar: 
 
-- Vagrant
+- Vagrant ( https://www.vagrantup.com/downloads.html )
 - docker-ce ( https://docs.docker.com/install/linux/docker-ce/ubuntu/ )
 - docker-compose  ( https://docs.docker.com/compose/install/ )
 
