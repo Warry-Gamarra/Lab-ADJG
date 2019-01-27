@@ -1,0 +1,31 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Every Vagrant development environment requires a box. You can search for
+# boxes at https://atlas.hashicorp.com/search.
+
+Vagrant.configure("2") do |config|
+  config.vm.define "web" do |web|
+  web.vm.box = "minimal/centos7"
+  web.vm.hostname = 'TLVAPP01'
+
+  web.vm.network :private_network, ip: "192.168.33.101"
+  web.vm.provider :virtualbox do |v|
+     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+     v.customize ["modifyvm", :id, "--memory", 512]
+     v.customize ["modifyvm", :id, "--name", "TLVAPP01"]
+  end
+end
+
+ config.vm.define "db" do |db|
+ db.vm.box = "minimal/centos7"
+ db.vm.hostname = 'TLVDB01'
+ 
+ db.vm.network :private_network, ip: "192.168.33.102"
+ db.vm.provider :virtualbox do |v|
+    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    v.customize ["modifyvm", :id, "--memory", 512]
+    v.customize ["modifyvm", :id, "--name", "TLVDB01"]
+  end
+ end
+end
