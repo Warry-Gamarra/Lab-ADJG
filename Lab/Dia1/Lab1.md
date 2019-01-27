@@ -172,6 +172,11 @@ En la ruta ***C:\vagrant*** será nuestro directorio donde vamos a trabajar con 
 
 Vamos a trabajar con el archivo Vagrantfile que esta adjunto a la guia
 
+### Plugins
+
+- vagrant plugin install vagrant-disksize
+- vagrant plugin install vagrant-scp
+
 Para que vagrant "compile", realizaremos esto:
 
 ![vagrant](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/vagrant.png "Vagrant")
