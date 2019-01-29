@@ -6,6 +6,7 @@ Donde se tocarán temas básicos en base a:
 - Docker: instancia/contenedor, Dockerfile, docker-compose, redes, volumenes
 - Jenkins: automatización, administracion de plataforma, jobs, pipelines
 - Git: Control de Versiones, comandos basicos
+- Vagrant: Infraestructura como codigo
 - Caso Practico: CI/DC Jenkins + pipeline + docker + maven
 
 ## Off-Topic
