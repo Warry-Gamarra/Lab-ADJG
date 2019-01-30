@@ -158,7 +158,7 @@ Nos logeamos en la web de dockerhub y validamos:
 ![dockerhub](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/dockerhub.png "dockerhub")
 
 
-## Vagrant & Ansible
+## Vagrant & Ansible | IcA
 
 Vagrant nos permite "crear" infraestructura por medio de "codigo" lo que se conoce como IcA, Ansible nos permite realizar configuraciones centralizadas sin la necesidad de interactuar directamente con los servidores.
 
