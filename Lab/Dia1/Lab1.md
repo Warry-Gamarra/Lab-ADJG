@@ -28,10 +28,7 @@
 
 - Eliminar un contenedor: ```$docker rm -fv superapi```
 
-**Actividad**
-
-Buscar e instalar la imagen Apache con el TAG NAME = sapache y el puerto 80 debe visualizarse por el puerto 8282 en 
-el HOST.
+**Actividad**: buscar e instalar la imagen Apache con el TAG NAME = sapache y el puerto 80 debe visualizarse por el puerto 8282 en el HOST.
 
 **Dockerfile**
 
@@ -71,8 +68,7 @@ CMD apachectl -DFOREGROUND
 
 Lo ejecutamos: ```$docker build -t apache-new . ```
 
-**Actividad**
-Instalar la imagen de Tomcat que inicie en el puerto 8080 del HOST 
+**Actividad**: instalar la imagen de Tomcat que inicie en el puerto 8080 del HOST .
 
 
 Para crear un volumen para un contenedor: 
@@ -221,8 +217,6 @@ Para conectarnos via SSH a cualquiera de los servidores:
 ![vagrant](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/vagrant5.PNG "Vagrant")
 
 
-
-
 Seguimos estos pasos previos:
 
 - vagrant plugin install vagrant-scp 
@@ -239,8 +233,8 @@ Seguimos estos pasos previos:
 ```
 
 ### OBS
-Se puede usar vagrant scp para realizar esta tarea... 
 
+Se puede usar vagrant scp para realizar esta tarea... 
 
 Vamos ahora a configurar un playbook sencillo para validar el PING a los nodos, el cual será de la sgt manera, pero primero creamos nuestro inventario de hosts:
 
@@ -287,7 +281,6 @@ Por ello vamos a ver la estructura de un **playbook**
 
 
 De esta forma podemos realizar las configuraciones que deseemos de forma sencilla.
-
 
 
 ## Caso Practico:
