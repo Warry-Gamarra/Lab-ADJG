@@ -1008,6 +1008,38 @@ Cuando construimos, debemos visualizar lo sgt:
    - Realizar pruebas funcionales ( unit test )
    - Realizar pruebas de rendimiento ( stress )
 
+### Aplicacion:
+
+- En gitlab, crear el proyecto: ***pipeline***
+- Agragear los usuarios a demanda. (por defecto root! )
+- Crear un Jenkinsfile
+
+```
+pipeline {
+    agent any
+    stages {
+
+        stage('testing pipeline'){
+          steps{
+		    echo 'test1'
+                sh 'mkdir from-jenkins'
+                sh 'touch from-jenkins/test.txt'
+                }
+        }
+
+}
+}
+```
+
+- En jenkins, crear job/pipeline. ( previante los usuarios deben figurar en "credentials" )
+- Usar "pipeline script from SCM".
+- Construir el job.
+- El resultado debe ser:
+
+![pipeline](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/pipelinefianl.png "pipeline")
+
+
+
 
 ### CD / CI : Docker + Jenkins + Maven
 - Iniciar los contenedores: base de datos ( mysql ), web ( nginx ) , jenkins, GitLab, Server Linux 
