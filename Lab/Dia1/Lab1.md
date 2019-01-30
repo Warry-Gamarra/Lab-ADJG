@@ -84,7 +84,7 @@ Asignando la red a un contenedor
 ```$docker run -d --network lab-net --name dev2 -ti centos```
 
 
-### Git/GitHub
+### Git/GitHub | dockerhub
 
 
 Pues bien vamos ahora crear una imagen y subirla a dockerhub, los archivos de configuracion serán subidos a Github.
