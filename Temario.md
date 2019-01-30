@@ -62,13 +62,13 @@
 - administración jenkins
 - jenkins con ansible
 - jenkins maven
-- jenkins email
-- jenkins maven
 - jenkins git
 - jenkins aws
+- Stage/Jenkinsfile
+
 
 **Casos Prácticos:**
-- Despliegue de entorno: mysql + apache ( contenedores )
+- Despliegue de entornos con docker + vagrant
 - CI/CD : Jenkins pipelines + docker + maven
 
 
