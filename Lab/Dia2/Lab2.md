@@ -1021,3 +1021,6 @@ Cuando construimos, debemos visualizar lo sgt:
 - Busca la forma de desplegar tu artefacto ( jenkins ) en las VM
 - Valida el Flujo de la CD
 - FIN 
+
+![jci](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jci.png "jci")
+
