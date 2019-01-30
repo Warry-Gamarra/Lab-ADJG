@@ -33,7 +33,7 @@
 
 **Dockerfile**
 
-Un Dockerfile es un archivo de texto plano que contiene las instrucciones necesarias para automatizar la creación de una imagen que será utilizada posteriormente para la ejecución de instancias específicas ( i.e. contenedores ).
+Un Dockerfile es un archivo de texto plano que contiene las instrucciones necesarias para automatizar la creación de una **imagen** que será utilizada posteriormente para la ejecución de instancias específicas ( i.e. contenedores ).
 
 Ejm.
 ```
@@ -47,7 +47,11 @@ CMD apachectl -DFOREGROUND
 
 Para ejecutar un Dockerfile, usamos: ```$docker build --tag apache-build .  ```
 
-Con esto configuramos nuestra imagen de Centos7 con apache ( httpd ), ahora la ejecutamos: ```$docker run -d -p 80:80 apache-build ```
+Con esto configuramos nuestra imagen de Centos7 con apache ( httpd ), ahora la ejecutamos:
+
+
+```$docker run -d -p 80:80 apache-build ```
+
 
 Vamos a agregar un index.html en nuestra imagen para ello, en nuestro Dockerfile
 
@@ -69,7 +73,7 @@ CMD apachectl -DFOREGROUND
 
 Lo ejecutamos: ```$docker build -t apache-new . ```
 
-**Actividad**: instalar la imagen de Tomcat que inicie en el puerto 8080 del HOST .
+**Actividad**: instalar la imagen de Tomcat y crear el contenedor que debe escuchar el puerto 8080 del HOST .
 
 
 Para crear un volumen para un contenedor: 
