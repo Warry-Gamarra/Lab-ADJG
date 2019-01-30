@@ -1036,7 +1036,7 @@ pipeline {
 - Construir el job.
 - El resultado debe ser:
 
-![pipeline](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/pipelinefianl.png "pipeline")
+![pipeline](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/pipelinefinal.png "pipeline")
 
 
 
