@@ -28,7 +28,8 @@
 
 - Eliminar un contenedor: ```$docker rm -fv superapi```
 
-**Actividad**: buscar e instalar la imagen Apache con el TAG NAME = sapache y el puerto 80 debe visualizarse por el puerto 8282 en el HOST.
+**Actividad**: buscar e instalar la imagen de Apache y crear el contenedor **sapache**,  el puerto 80 debe visualizarse por el puerto 8282 en el HOST.
+
 
 **Dockerfile**
 
