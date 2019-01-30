@@ -958,9 +958,42 @@ usar 1-pipe
 ![pipeline](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/jenkinspipe4.png "pipeline")
 
 
+### Stage
+Vamos a crear un pequeño stage, recorgar que un stage son las fases que tiene CI, a su vez un delivery pipeline, es la "logica" como tal, engloba, stages, recursos, procesos, etc, y jenkins pipeline, es solo la "herramienta"
+
+Creamos un job de nombre **stage** con la opcion de **pipeline**
+
+```
+pipeline {
+    agent any
+    stages {
+        stage('Stage: Primer Stage / Test') {
+            steps {
+                echo 'Paso 1. Hola Mundo'
+            }
+        }
+        stage('Stage: Segundo Stage / Build') {
+            steps {
+                echo 'Paso 2: Hola Dos Veces'
+                echo 'Paso 3. Hola Tres Veces'
+            }
+        }
+    }
+}
+```
+
+
+![pipeline](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/pipeline.png "pipeline")
+
+Cuando construimos, debemos visualizar lo sgt:
+
+
+![pipeline](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/pipeline2.png "pipeline")
+
+
 ### CD / CI : Docker + Jenkins + Maven
 - Iniciar los contenedores: base de datos ( mysql ), web ( nginx ) , jenkins, GitLab, Server Linux 
-- Definir stages para el pipeline
+- Definir stages para el pipeline ( test (1 paso), build(5 pasos), QA(3 pasos), Production(1 paso) )
 - Generar los scripts necesarios
 - Generar un jar via Maven
 - Crea un pipeline en Jenkins ( integrado con Gitlab ) 
