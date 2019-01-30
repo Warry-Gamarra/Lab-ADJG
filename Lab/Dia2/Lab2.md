@@ -991,6 +991,24 @@ Cuando construimos, debemos visualizar lo sgt:
 ![pipeline](https://github.com/kdetony/Lab-ADJG/blob/master/Lab/imagenes/pipeline2.png "pipeline")
 
 
+### OBS
+
+**node/nodo**
+- Es parte de la arquitectura de modo distribuido de Jenkins, donde la carga de trabajo se puede delegar a varios nodos. Un nodo "maestro/master" maneja todas las tareas en su entorno. Los nodos descargan las compilaciones desde el nodo maestro, realizando así todo el trabajo de canalización especificado en el bloque de nodo.
+
+```node { 
+}
+```
+
+**stage**
+- Consta de varios pasos que se pueden agrupar en etapas. Entre estas etapas puedes tener:
+   - Extraer código del repositorio
+   - Construye tu proyecto
+   - Implementa tu aplicación
+   - Realizar pruebas funcionales ( unit test )
+   - Realizar pruebas de rendimiento ( stress )
+
+
 ### CD / CI : Docker + Jenkins + Maven
 - Iniciar los contenedores: base de datos ( mysql ), web ( nginx ) , jenkins, GitLab, Server Linux 
 - Definir stages para el pipeline ( test (1 paso), build(5 pasos), QA(3 pasos), Production(1 paso) )
