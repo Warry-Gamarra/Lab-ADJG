@@ -28,6 +28,7 @@ En **Linux** la instalacion de docker es sencilla y más nativa.
 ```curl -fsSL https://get.docker.com -o get-docker.sh```
 
 Script para eliminar TODO !!!!
+
 ```
 #!/bin/bash
 # Borrar contenedores en wuan!
@@ -36,6 +37,10 @@ docker rm $(docker ps -a -q)
 docker rmi $(docker images -q)
 echo "Lo hice :( "
 ```
+### OBS
+
+```docker rm  $(docker ps -qf status=exited)```
+
 
 Una alternativa mas "larga"
 
