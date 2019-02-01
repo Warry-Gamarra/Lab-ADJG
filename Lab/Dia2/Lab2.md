@@ -1049,7 +1049,7 @@ pipeline {
 - Crea un pipeline en Jenkins ( integrado con Gitlab ) 
 - Valida el Flujo de la CI
 - Crea 2 VMs ( vagrant )
-- Instala nginx
+- Instala nginx via Ansible
 - Busca la forma de desplegar tu artefacto ( jenkins ) en las VM
 - Valida el Flujo de la CD
 - FIN 
