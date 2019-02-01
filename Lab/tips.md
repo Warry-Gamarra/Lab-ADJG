@@ -64,3 +64,16 @@ Parámetros AWK :
 - ARGC : Número de parámetros de entrada al programa.
 - ARGV : Valor de los parámetros pasados al programa.
 
+
+### Backup de un contenedor
+
+
+Primera Forma:
+
+- docker ps -a  // Listamos el ID del contenedor
+- docker commit -p <ID> <NOMBRE_BACKUP_CONTENEDOR>
+- docker images // validamos que la imagen se haya creado, ejm: <NOMBRE_BACKUP_CONTENEDOR>
+- docker save -o <NOMBRE_FINAL_BACKUP>.tar <NOMBRE_BACKUP_CONTENEDOR>
+  
+  
+  
