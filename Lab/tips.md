@@ -37,4 +37,9 @@ docker rmi $(docker images -q)
 echo "Lo hice :( "
 ```
 
+Una alternativa mas "larga"
+
+```docker ps -a | awk 'NF >9 {print $1}'```
+
+
 
