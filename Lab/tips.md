@@ -25,4 +25,16 @@ En **Windows 10 Profesional y/o Enterprise** instalar docker se puede realizar d
 
 En **Linux** la instalacion de docker es sencilla y más nativa.
 
+```curl -fsSL https://get.docker.com -o get-docker.sh```
+
+Script para eliminar TODO !!!!
+```
+#!/bin/bash
+# Borrar contenedores en wuan!
+docker rm $(docker ps -a -q)
+# Borrar imanges tambien !!! 
+docker rmi $(docker images -q)
+echo "Lo hice :( "
+```
+
 
