@@ -41,5 +41,19 @@ Una alternativa mas "larga"
 
 ```docker ps -a | awk 'NF >9 {print $1}'```
 
-
+comandos : una serie de comandos a ejecutar:
+-$0 → Mostrar la línea completa
+-$1-$N → Mostrar los campos (columnas) de la línea especificados.
+-FS → Field Separator (Espacio o TAB por defecto)
+-NF → Número de campos (fields) en la línea actual
+-NR → Número de líneas (records) en el stream/fichero a procesar.
+-OFS → Output Field Separator (" ").
+-ORS → Output Record Separator ("\n").
+-RS → Input Record Separator ("\n").
+-BEGIN → Define sentencias a ejecutar antes de empezar el procesado.
+-END → Define sentencias a ejecutar tras acabar el procesado.
+-length → Longitud de la línea en proceso.
+-FILENAME → Nombre del fichero en procesamiento.
+-ARGC → Número de parámetros de entrada al programa.
+-ARGV → Valor de los parámetros pasados al programa.
 
