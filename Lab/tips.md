@@ -41,7 +41,9 @@ Una alternativa mas "larga"
 
 ```docker ps -a | awk 'NF >9 {print $1}'```
 
-comandos : una serie de comandos a ejecutar:
+Parámetros AWK :
+
+
 -$0 → Mostrar la línea completa
 -$1-$N → Mostrar los campos (columnas) de la línea especificados.
 -FS → Field Separator (Espacio o TAB por defecto)
