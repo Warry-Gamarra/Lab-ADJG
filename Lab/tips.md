@@ -98,4 +98,5 @@ FROM alpine
 ### OBS
 
 
-```docker run --interactive --tty ubuntu bash EQUAL **docker run -it ubuntu bash**```
+```docker run --interactive --tty ubuntu bash EQUAL docker run -it ubuntu bash```
+```docker run --detach --publish 80:80 --name webserver nginx EQUAL docker -d -p 80:80 --nameserver webserver nginx```
