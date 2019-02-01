@@ -68,12 +68,34 @@ Parámetros AWK :
 ### Backup de un contenedor
 
 
-Primera Forma:
+**Primera Forma:**
 
 - docker ps -a  // Listamos el ID del contenedor
 - docker commit -p <ID> <NOMBRE_BACKUP_CONTENEDOR>
 - docker images // validamos que la imagen se haya creado, ejm: <NOMBRE_BACKUP_CONTENEDOR>
 - docker save -o <NOMBRE_FINAL_BACKUP>.tar <NOMBRE_BACKUP_CONTENEDOR>
   
-  
-  
+### Restore 
+- docker load -i <NOMBRE_FINAL_BACKUP>.tar
+
+**Segunda Forma:**
+
+
+ ```/var/lib/docker```
+ 
+ ### Buenas Practicas
+ 
+ Usemos imagenes "ligth" para construir 
+
+``` 
+FROM scratch
+.....
+or
+FROM alpine
+....
+```
+
+### OBS
+
+
+```docker run --interactive --tty ubuntu bash EQUAL **docker run -it ubuntu bash**```
